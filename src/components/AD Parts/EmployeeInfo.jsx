@@ -21,9 +21,9 @@ const EmployeeInfo = () => {
         </Link>
       </div>
       <TaskCard data={employee} />
-      <h2 className="text-xl font-semibold">Monthly record</h2>
+      {/* <h2 className="text-xl font-semibold">Monthly record</h2>
       <p>Completed Tasks: </p>
-      <p>Failed Tasks: </p>
+      <p>Failed Tasks: </p> */}
     </div>
   );
 };
