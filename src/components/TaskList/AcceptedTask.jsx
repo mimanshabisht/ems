@@ -8,10 +8,14 @@ const AcceptedTask = ({ data }) => {
         <p className=" bg-red-600 rounded px-2 py-1 text-sm font-medium">
           {data.category}
         </p>
-        <p className="text-sm font-medium">{data.taskDate}</p>
+        <p className="text-sm font-medium text-gray-900">{data.taskDate}</p>
       </div>
-      <h2 className="mt-5 text-2xl font-semibold">{data.taskTitle}</h2>
-      <p className="text-sm mt-2">{data.taskDescription}</p>
+      <h2 className="mt-5 text-2xl font-semibold text-gray-900">
+        {data.taskTitle}
+      </h2>
+      <p className="text-md font-medium mt-2 text-gray-900">
+        {data.taskDescription}
+      </p>
     </div>
   );
 };

@@ -8,22 +8,22 @@ const TaskCard = ({ data }) => {
   return (
     <div
       id="taskCard"
-      className="flex h-[50%] w-full py-5 mt-10 flex-nowrap gap-5 overflow-x-auto"
+      className={`flex h-[50%] w-full py-4 mt-2 flex-nowrap gap-5 overflow-x-auto`}
     >
-      {data.tasks.map((elem) => {
+      {data.tasks.map((elem, index) => {
         if (elem.active) {
-          return <AcceptedTask key={elem.taskTitle} data={elem} />;
+          return <AcceptedTask key={index} data={elem} />;
         }
         if (elem.completed) {
-          return <CompletedTask key={elem.taskTitle} data={elem} />;
+          return <CompletedTask key={index} data={elem} />;
         }
 
         if (elem.failed) {
-          return <FailedTask key={elem.taskTitle} data={elem} />;
+          return <FailedTask key={index} data={elem} />;
         }
 
         if (elem.newTask) {
-          return <NewTask key={elem.taskTitle} data={elem} />;
+          return <NewTask key={index} data={elem} />;
         }
       })}
     </div>

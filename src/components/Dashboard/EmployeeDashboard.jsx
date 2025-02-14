@@ -7,6 +7,7 @@ const EmployeeDashboard = ({ data, setUser }) => {
     <div className="p-10 h-screen">
       <Header data={data} setUser={setUser} />
       <TaskStatus data={data} />
+      <h2 className="text-xl font-semibold mt-8">Tasks of the day :</h2>
       <TaskCard data={data} />
     </div>
   );

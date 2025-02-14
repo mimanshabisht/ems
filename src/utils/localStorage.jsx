@@ -5,14 +5,14 @@ const employees = [
     email: "e@e.com",
     password: "123",
     taskCounts: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 1,
       failed: 0,
     },
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -83,14 +83,14 @@ const employees = [
     email: "employee3@example.com",
     password: "123",
     taskCounts: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 1,
       failed: 0,
     },
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -127,15 +127,15 @@ const employees = [
     email: "employee4@example.com",
     password: "123",
     taskCounts: {
-      active: 2,
-      newTask: 1,
+      active: 1,
+      newTask: 0,
       completed: 0,
-      failed: 0,
+      failed: 1,
     },
     tasks: [
       {
         active: true,
-        newTask: true,
+        newTask: false,
         completed: false,
         failed: false,
         taskTitle: "Write documentation",
@@ -144,10 +144,10 @@ const employees = [
         category: "Documentation",
       },
       {
-        active: true,
+        active: false,
         newTask: false,
         completed: false,
-        failed: false,
+        failed: true,
         taskTitle: "Set up CI/CD",
         taskDescription: "Implement continuous integration pipeline",
         taskDate: "2024-10-11",
@@ -161,14 +161,14 @@ const employees = [
     email: "employee5@example.com",
     password: "123",
     taskCounts: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 1,
       failed: 0,
     },
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,

@@ -7,7 +7,7 @@ const CreateTask = () => {
   const [category, setCategory] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [assignTo, setAssignTo] = useState("");
-
+  const [ifEmpty, setIfEmpty] = useState(false);
   const [newTasks, setNewTasks] = useState(null);
   const { userData, setUserData } = useContext(AuthContext);
 
@@ -23,22 +23,28 @@ const CreateTask = () => {
       taskDate,
       category,
     });
+    if (taskTitle == "") {
+      setIfEmpty(true);
+      alert("Task must have a title");
+    }
   };
 
   useEffect(() => {
-    console.log(newTasks);
     const employees = JSON.parse(localStorage.getItem("employees"));
+    let employeeExists = false;
     employees.forEach((elem) => {
       if (assignTo == elem.firstName) {
-        console.log(newTasks);
-        if (newTasks) {
+        employeeExists = true;
+        if (newTasks && ifEmpty == false) {
           elem.tasks.push(newTasks);
           elem.taskCounts.newTask += 1;
+          alert("Task created");
         }
-
-        console.log(elem.tasks);
       }
     });
+    if (!employeeExists && assignTo !== "") {
+      alert("No such employee exists");
+    }
     if (newTasks) {
       localStorage.setItem("employees", JSON.stringify(employees));
     }
@@ -78,7 +84,13 @@ const CreateTask = () => {
               <h3 className="text-sm">Assign to</h3>
               <input
                 value={assignTo}
-                onChange={(e) => setAssignTo(e.target.value)}
+                onChange={(e) => {
+                  let name = (
+                    e.target.value.charAt(0).toUpperCase() +
+                    e.target.value.slice(1).toLowerCase()
+                  ).trim();
+                  setAssignTo(name);
+                }}
                 className="w-full mt-1 px-2 py-1 text-sm bg-transparent rounded-lg border-2 border-white-400 "
                 type="text"
                 placeholder="Employee Name"
